@@ -1,15 +1,15 @@
 "use client";
- 
+
 import { useState } from "react";
 import axios from "axios";
- 
+
 export default function Formik() {
   const [attendance, setAttendance] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [successMessage, setSuccessMessage] = useState<string>("");
- 
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name === "" || attendance === "") {
@@ -18,11 +18,11 @@ export default function Formik() {
     }
     setError("");
     setSuccessMessage("");
- 
+
     const payload = new URLSearchParams();
     payload.append("name", name);
     payload.append("attendance", attendance);
- 
+
     setLoading(true);
     try {
       const response = await axios.post(
@@ -44,7 +44,7 @@ export default function Formik() {
       setLoading(false);
     }
   };
- 
+
   return (
     <>
       <form onSubmit={handleSubmit} className="mx-auto w-full max-w-md px-4">
