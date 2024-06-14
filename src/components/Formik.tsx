@@ -1,13 +1,15 @@
 "use client";
-
+ 
 import { useState } from "react";
-
+import axios from "axios";
+ 
 export default function Formik() {
   const [attendance, setAttendance] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-
+  const [successMessage, setSuccessMessage] = useState<string>("");
+ 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name === "" || attendance === "") {
@@ -15,30 +17,34 @@ export default function Formik() {
       return;
     }
     setError("");
-    const formData = new FormData();
-    formData.append("name", name); // Append name to FormData
-    formData.append("attendance", attendance); // Append attendance to FormData
-
+    setSuccessMessage("");
+ 
+    const payload = new URLSearchParams();
+    payload.append("name", name);
+    payload.append("attendance", attendance);
+ 
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbycRC0Ohi_lgee9qdKM83UvT0ufMz1LwiG0LKW2xPlZW9zKK379M2AjsKqNE0c2qrtWOg/exec",
+      const response = await axios.post(
+        "https://script.google.com/macros/s/AKfycbyXIv-8_wXQ8ZnJ2_gFtqao7HXmlx4cM7ZEHDx1oln9dRfyXbx512WTQN-J4rfgKxshIQ/exec",
+        payload,
         {
-          method: "POST",
-          body: formData,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
         },
       );
-      const data = await response.json();
+      setSuccessMessage("Сіздің хабарламаңыз сәтті жіберілді!");
       setAttendance("");
       setName("");
-      e.currentTarget.reset(); // Reset form fields
       setLoading(false);
     } catch (error) {
       console.error("Error submitting form:", error);
+      setError("Бір қателік орын алды.");
       setLoading(false);
     }
   };
-
+ 
   return (
     <>
       <form onSubmit={handleSubmit} className="mx-auto w-full max-w-md px-4">
@@ -49,7 +55,7 @@ export default function Formik() {
           <div className="mt-2 flex flex-col items-center">
             <input
               type="text"
-              name="Name"
+              name="name"
               value={name}
               placeholder="Есіміңіз"
               onChange={(e) => setName(e.target.value)}
@@ -95,6 +101,11 @@ export default function Formik() {
             {error && (
               <div className="mt-3 w-full max-w-[85%] text-left text-red-500">
                 {error}
+              </div>
+            )}
+            {successMessage && (
+              <div className="mt-3 w-full max-w-[85%] text-left text-green-500">
+                {successMessage}
               </div>
             )}
             <button
