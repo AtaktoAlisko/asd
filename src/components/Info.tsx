@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import insta from "../../public/insta.png";
 
 export default function Info() {
   useEffect(() => {
@@ -68,7 +69,7 @@ export default function Info() {
       >
         Сізге жетуге ыңғайлы <br /> болу үшін картаны басыңыз!
       </div>
-      <div className="flex gap-10">
+      <div className="flex gap-10 ml-10">
         <a href="https://2gis.kz/kz_kyzylorda_oblast_rwop/geo/70030076439794021/63.277977,45.613504">
           <Image
             data-aos="fade-up"
@@ -82,11 +83,11 @@ export default function Info() {
         <a href="https://www.instagram.com/restoran_miras_baikonur/?igsh=MWdkZ3dqMzcxY21p">
           <Image
             data-aos="fade-up"
-            src="/insta.png "
+            src={insta}
             alt="insta"
-            width={66}
-            height={66}
-            className="mb-12 mt-[-2px] rounded-2xl"
+            width={130}
+            height={130}
+            className="mb-12 mt-[-13px] rounded-2xl"
           />
         </a>
       </div>
