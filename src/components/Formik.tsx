@@ -15,15 +15,14 @@ export default function Formik() {
       return;
     }
     setError("");
-    const formEle = e.currentTarget;
-    const formData = new FormData(formEle);
-
-    formData.append("attendance", attendance);
+    const formData = new FormData();
+    formData.append("name", name); // Append name to FormData
+    formData.append("attendance", attendance); // Append attendance to FormData
 
     setLoading(true);
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzBNNfLMJzG48j7MpVSxv2IQCZ4h04nOfQ0EQIqmMaoaxQiuStNKK7rg3kvslCsKQmbUA/exec",
+        "https://script.google.com/macros/s/AKfycbycRC0Ohi_lgee9qdKM83UvT0ufMz1LwiG0LKW2xPlZW9zKK379M2AjsKqNE0c2qrtWOg/exec",
         {
           method: "POST",
           body: formData,
@@ -32,6 +31,7 @@ export default function Formik() {
       const data = await response.json();
       setAttendance("");
       setName("");
+      e.currentTarget.reset(); // Reset form fields
       setLoading(false);
     } catch (error) {
       console.error("Error submitting form:", error);

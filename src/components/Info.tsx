@@ -68,16 +68,28 @@ export default function Info() {
       >
         Сізге жетуге ыңғайлы <br /> болу үшін картаны басыңыз!
       </div>
-      <a href="https://www.instagram.com/restoran_miras_baikonur/?igsh=MWdkZ3dqMzcxY21p">
-        <Image
-          data-aos="fade-up"
-          src="/2gis.jpeg"
-          alt="2gis"
-          width={60}
-          height={60}
-          className="mb-12 rounded-2xl"
-        />
-      </a>
+      <div className="flex gap-10">
+        <a href="https://2gis.kz/kz_kyzylorda_oblast_rwop/geo/70030076439794021/63.277977,45.613504">
+          <Image
+            data-aos="fade-up"
+            src="/2gis.jpeg"
+            alt="2gis"
+            width={60}
+            height={60}
+            className="mb-12 rounded-2xl"
+          />
+        </a>
+        <a href="https://www.instagram.com/restoran_miras_baikonur/?igsh=MWdkZ3dqMzcxY21p">
+          <Image
+            data-aos="fade-up"
+            src="/insta.png "
+            alt="insta"
+            width={66}
+            height={66}
+            className="mb-12 mt-[-2px] rounded-2xl"
+          />
+        </a>
+      </div>
       <div data-aos="fade-up" className="mb-4 font-xxx text-3xl text-[#846718]">
         Той иелері:
       </div>
@@ -131,30 +143,34 @@ export default function Info() {
         </div>
       </div>
       <div className="relative flex h-[70vh] w-full justify-center bg-[url('/shanyraq.webp')] bg-cover bg-center bg-no-repeat">
-        <div className="flex flex-col items-center pt-20 text-center">
-          <div className="mb-6 font-georgia text-2xl font-bold text-[#cb9e44]">
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative flex flex-col items-center pt-20 text-center">
+          <div className="mb-6 font-xxx text-2xl text-[#cb9e44] drop-shadow-md">
             Той салтанатына дейін:
           </div>
-          <div className="flex space-x-10 font-georgia text-[#FFFFFF]">
+          <div className="flex space-x-10 font-georgia text-[#FFFFFF] drop-shadow-md">
             <div className="flex flex-col items-center">
-              <div className="text-4xl">{timeLeft.days}</div>
-              <div className="text-md text-[#FCF7F7]">күн</div>
+              <div className="text-4xl drop-shadow-md">{timeLeft.days}</div>
+              <div className="text-md text-[#FCF7F7] drop-shadow-md">күн</div>
             </div>
             <div className="flex flex-col items-center font-georgia">
-              <div className="text-4xl">{timeLeft.hours}</div>
-              <div className="text-md text-[#FCF7F7]">сағат</div>
+              <div className="text-4xl drop-shadow-md">{timeLeft.hours}</div>
+              <div className="text-md text-[#FCF7F7] drop-shadow-md">сағат</div>
             </div>
             <div className="flex flex-col items-center font-georgia">
-              <div className="text-4xl">{timeLeft.minutes}</div>
-              <div className="text-md text-[#FCF7F7]">минут</div>
+              <div className="text-4xl drop-shadow-md">{timeLeft.minutes}</div>
+              <div className="text-md text-[#FCF7F7] drop-shadow-md">минут</div>
             </div>
             <div className="flex flex-col items-center font-georgia">
-              <div className="text-4xl">{timeLeft.seconds}</div>
-              <div className="text-md text-[#FCF7F7]">секунд</div>
+              <div className="text-4xl drop-shadow-md">{timeLeft.seconds}</div>
+              <div className="text-md text-[#FCF7F7] drop-shadow-md">
+                секунд
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       <Image
         src="/decor.png"
         alt="decor"

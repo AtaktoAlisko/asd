@@ -56,11 +56,11 @@ export default function MainContent() {
         шақырамыз!
       </div>
       <div className="relative mx-10 mb-16 flex h-[60vh] w-[80%] flex-col items-center rounded-xl bg-[url('/girl.webp')] bg-cover bg-center bg-no-repeat">
-        <div className="pt-8 font-georgia text-3xl font-bold text-[#846718]">
+        <div className="pt-8 font-xxx text-3xl  text-[#846718]">
           Той Салтанаты:
         </div>
         <div className="flex flex-col items-center pt-8 text-center uppercase text-[#846718]">
-          <div data-aos="flip-up" className="font-georgia text-2xl font-bold">
+          <div data-aos="flip-up" className="font-xxx text-2xl ">
             тамыз
           </div>
           <div
@@ -73,7 +73,7 @@ export default function MainContent() {
             2024 жыл
           </div>
           <div className="absolute bottom-8 flex flex-col text-[#846718]">
-            <div className="font-georgia text-3xl font-bold capitalize">
+            <div className="font-xxx text-3xl  capitalize">
               Басталуы:
             </div>
             <div
